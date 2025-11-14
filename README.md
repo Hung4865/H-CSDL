@@ -1,3 +1,4 @@
+
 ![Sơ đồ pipeline](./TheMap.png?v=1)
 ![ER](./ER.png?v=1)
 
@@ -11,6 +12,7 @@
 
 
 🛠️ Công Nghệ Sử Dụng
+
 Dagster: Orchestrator để lập lịch và quản lý workflow.
 
 Producer (Python): Lấy dữ liệu từ Dagster rồi gửi vào Kafka.
