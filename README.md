@@ -1,4 +1,4 @@
-![Sơ đồ pipeline](./Diagram_New.png?v=1)
+![Sơ đồ pipeline](./TheMap.png?v=1)
 ![ER](./ER.png?v=1)
 
 
