@@ -1,4 +1,5 @@
 ![Sơ đồ pipeline](./Diagram_New.png?v=1)
+![ER](./ER.png?v=1)
 
 
 
