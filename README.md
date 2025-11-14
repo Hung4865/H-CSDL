@@ -1,3 +1,4 @@
+![Diagram](my_streaming_project/Diagram.png)
 🛠️ Công Nghệ Sử Dụng
 
 Orchestration: Docker & Docker Compose
