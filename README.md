@@ -1,4 +1,5 @@
-![Diagram](my_streaming_project/Diagram.png)
+![Diagram](./diagram.png)
+
 🛠️ Công Nghệ Sử Dụng
 
 Orchestration: Docker & Docker Compose
