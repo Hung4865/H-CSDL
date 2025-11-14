@@ -1,4 +1,4 @@
-![Diagram](./diagram.png)
+![Sơ đồ pipeline](my_streaming_project/Diagram.png)
 
 🛠️ Công Nghệ Sử Dụng
 
