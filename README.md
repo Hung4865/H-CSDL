@@ -1,4 +1,4 @@
-![Sơ đồ pipeline](my_streaming_project/Diagram.png)
+![Sơ đồ pipeline](my_streaming_project/Diagram.png?v=1)
 
 
 
