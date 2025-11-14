@@ -21,6 +21,9 @@ Kafka: Hàng đợi message để truyền dữ liệu theo mô hình streaming.
 
 Consumer (Python): Đọc message từ Kafka, xử lý và gửi sang SQL Server.
 
+Microsoft SQL Server: Datawarehouse Lưu trữ dữ liệu
+
+Power BI kết nối vào SQL Server để tạo báo cáo.
 ---
 
  🛑 Bước 1: Chuẩn Bị Môi Trường (Rất quan trọng)
