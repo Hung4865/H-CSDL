@@ -1,4 +1,4 @@
-![Sơ đồ pipeline](my_streaming_project/Diagram.png)
+![alt text]([https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true](https://github.com/Hung4865/H-CSDL/blob/DockerVersion/Diagram.png))
 
 🛠️ Công Nghệ Sử Dụng
 
