@@ -11,12 +11,10 @@
 
 
 🛠️ Công Nghệ Sử Dụng
-
-Orchestration: Docker & Docker Compose
-Producer: Python, Dagster
-Broker (Hàng đợi): Kafka (và Zookeeper)
-Consumer: Python, `kafka-python`, `pyodbc`
-Database: Microsoft SQL Server (chạy trên máy Host)
+Dagster: Orchestrator để lập lịch và quản lý workflow.
+Producer (Python): Lấy dữ liệu từ Dagster rồi gửi vào Kafka.
+Kafka: Hàng đợi message để truyền dữ liệu theo mô hình streaming.
+Consumer (Python): Đọc message từ Kafka, xử lý và gửi sang SQL Server.
 
 ---
 
