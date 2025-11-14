@@ -11,7 +11,7 @@
 
 
 
-🛠️ Công Nghệ Sử Dụng
+🛠️ **Công Nghệ Sử Dụng**
 
 Dagster: Orchestrator để lập lịch và quản lý workflow.
 
