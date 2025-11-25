@@ -222,27 +222,28 @@ END
 GO
 
 /* ========== 5. TẠO TRIGGER ========== */
-PRINT 'Đang tạo Trigger trg_AfterStockUpdate...';
-GO
-CREATE TRIGGER trg_AfterStockUpdate
-ON products
-AFTER UPDATE
+CREATE TRIGGER trg_KiemTraTonKhoKhongAm
+ON products 
+AFTER UPDATE 
 AS
 BEGIN
     SET NOCOUNT ON;
-    INSERT INTO inventory_logs (product_id, change_amount, reason)
-    SELECT
-        i.product_id,
-        i.stock_quantity - d.stock_quantity,
-        N'Đơn hàng mới được xử lý'
-    FROM
-        inserted i
-    JOIN
-        deleted d ON i.product_id = d.product_id
-    WHERE
-        i.stock_quantity != d.stock_quantity;
+
+    IF EXISTS (
+        SELECT 1
+        FROM inserted i
+        WHERE i.stock_quantity < 0
+    )
+    BEGIN
+        
+        ROLLBACK TRANSACTION;
+        
+        RAISERROR (N'Lỗi: Tồn kho sản phẩm không được phép âm. Thao tác UPDATE đã bị hủy.', 16, 1);
+        RETURN;
+    END
 END
 GO
+
 
 /* ========== 6. TẠO VIEW CHO POWER BI ========== */
 PRINT 'Đang tạo View v_SalesDashboard...';
