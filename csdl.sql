@@ -178,7 +178,7 @@ BEGIN
         SELECT 
             @v_product_price = price, 
             @v_current_stock = stock_quantity
-        FROM products WITH (UPDLOCK)
+        FROM products WITH (UPDLOCK) --đọc giá và tồn kho của sản phẩm, đồng thời khóa dòng đó lại để tránh bị người khác cập nhật cùng lúc.
         WHERE product_id = @v_product_id;
 
         IF @v_current_stock >= @v_quantity
@@ -188,7 +188,7 @@ BEGIN
             INSERT INTO orders (total_amount, user_id, shipper_id)
             VALUES (@v_total_amount, @v_user_id, @v_shipper_id);
             
-            SET @v_new_order_id = SCOPE_IDENTITY(); 
+            SET @v_new_order_id = SCOPE_IDENTITY(); --Lấy order_id của đơn hàng mới tạo và lưu vào biến @v_new_order_id.
 
             INSERT INTO order_details (order_id, product_id, quantity, price_at_purchase)
             VALUES (@v_new_order_id, @v_product_id, @v_quantity, @v_product_price);
@@ -204,7 +204,7 @@ BEGIN
             RAISERROR('Không đủ hàng tồn kho (product_id: %d).', 16, 1, @v_product_id);
         END
     END TRY
-    BEGIN CATCH
+    BEGIN CATCH --Nếu có lỗi xảy ra, đoạn CATCH sẽ rollback transaction để không làm hỏng dữ liệu, lấy thông báo lỗi rồi in ra cho dễ theo dõi.
         IF @@TRANCOUNT > 0
         BEGIN
             ROLLBACK TRANSACTION;
@@ -230,7 +230,7 @@ BEGIN
     )
     BEGIN
         
-        ROLLBACK TRANSACTION;
+        ROLLBACK TRANSACTION; --Trigger này tự động kiểm tra sau mỗi lần UPDATE, nếu tồn kho < 0 thì SQL rollback toàn bộ và báo lỗi, đảm bảo dữ liệu không bao giờ bị âm.
         
         RAISERROR (N'Lỗi: Tồn kho sản phẩm không được phép âm. Thao tác UPDATE đã bị hủy.', 16, 1);
         RETURN;
