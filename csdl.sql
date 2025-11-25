@@ -1,9 +1,3 @@
-/* =========================================================================
- SCRIPT TỔNG: LÀM SẠCH VÀ TẠO MỚI (KHÔNG DÙNG IF EXISTS KHI CREATE)
- CHẠY TRONG: SQL Server Management Studio (SSMS)
- LƯU Ý: Chạy script này trên CSDL 'master' để nó xóa CSDL cũ
-=========================================================================
-*/
 
 -- Chuyển về CSDL master để có thể xóa CSDL dự án
 USE master;
